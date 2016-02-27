@@ -1,7 +1,8 @@
 var express = require('express');
 
 var app = express();
-//var parser = new UAParser();
+
+app.enable('trust proxy');
 
 app.get('/', function(req, res) {
     res.send('Set path to /api/whoami to see request header ' +
@@ -14,7 +15,7 @@ app.get('/api/whoami', function(req, res) {
     )[0];
     
     var result = {
-        'IPaddress': req.connection.remoteAddress,
+        'IPaddress': req.ip,
         'Language': language
     };
     
