@@ -4,6 +4,11 @@ var app = express();
 //var parser = new UAParser();
 
 app.get('/', function(req, res) {
+    res.send('Set path to /api/whoami to see request header ' +
+             'information.');
+});
+
+app.get('/api/whoami', function(req, res) {
     var language = /^[a-z]{2}-[A-Z]{2}/.exec(
         req.headers['accept-language']
     )[0];
