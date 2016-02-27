@@ -14,10 +14,14 @@ app.get('/api/whoami', function(req, res) {
         req.headers['accept-language']
     )[0];
     
+    var ua = /\((.+?)\)/.exec(
+        req.headers['user-agent']
+    )[1];
+    
     var result = {
         'IPaddress': req.ip,
         'Language': language,
-        'Software': req.headers['user-agent']
+        'Software': ua
     };
     
     res.json(result);
