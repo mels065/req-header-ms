@@ -14,7 +14,7 @@ app.get('/api/whoami', function(req, res) {
     )[0];
     
     var result = {
-        'IPaddress': req.ip,
+        'IPaddress': req.connection.remoteAddress,
         'Language': language
     };
     
