@@ -7,6 +7,7 @@ app.enable('trust proxy');
 app.get('/', function(req, res) {
     res.send('Set path to /api/whoami to see request header ' +
              'information.');
+    res.end();
 });
 
 app.get('/api/whoami', function(req, res) {
@@ -25,6 +26,7 @@ app.get('/api/whoami', function(req, res) {
     };
     
     res.json(result);
+    res.end();
 });
 
 var port = process.env.PORT || 8080;
